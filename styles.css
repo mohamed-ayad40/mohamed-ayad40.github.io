@@ -1,0 +1,225 @@
+:root {
+  --dark-clr: #242424;
+  --light-clr: #f1f5f9;
+  --wrapper-circle: #ebebeb;
+  --wrapper-shadow1: rgba(0,0,0,0.4);
+  --wrapper-shadow2: rgba(255, 255, 255, 0.4);
+  --circle-color1: #ffcc89;
+  --circle-color2: #d8860b;
+  --circle-shadow: rgba(0,0,0,0.2);
+  --dark-circle-color1: #777;
+  --dark-circle-color2: #3a3a3a;
+  --text-color: #242424;
+  --background: #f0ecff;
+  --insta-background: #ffffff;
+  --specific-dark-insta: #f1f5f9;
+  --comments-color: #e1e1e1;
+}
+
+.dark-mode {
+  --light-clr: #242424;
+  --dark-clr: #f1f5f9;
+  --text-color: #f1f5f9;
+  --background: #242424;
+  --specific-dark-insta: #000000;
+  --insta-background: #121212;
+  --comments-color: #040303;
+}
+
+body {
+  background-color: var(--background) !important;
+}
+nav.navbar {
+  background-color: var(--specific-dark-insta) !important;
+  color: var(--dark-clr) !important;
+}
+a.navbar-brand {
+  font-weight: bold;
+  color: var(--dark-clr);
+  font-size: 22px;
+  opacity: 0.8;
+}
+a.navbar-brand:hover {
+  opacity: 1 !important;
+  color: var(--dark-clr);
+}
+a.nav-link {
+  color: var(--dark-clr) !important;
+}
+.cur {
+  cursor: pointer;
+}
+.card {
+  background-color: var(--insta-background) !important;
+  color: var(--dark-clr) !important;
+}
+#add-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 7%;
+  height: 70px;
+  width: 70px;
+  font-size: 50px;
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+#post-body-input {
+  width: 100%;
+  height: 100px;
+  border-color: gray;
+  border-radius: 10px;
+  resize: none;
+}
+#logout-div img {
+  width: 40px;
+  height: 40px;
+}
+.number-info {
+  color: rgb(172, 172, 172);
+  font-weight: 100;
+}
+.number-info span {
+  font-size: 50px;
+  color: var(--dark-clr);
+}
+.user-main-info {
+  font-weight: 500;
+  font-size: 20px;
+}
+/* ======== Loader Styles ======== */
+#loader {
+  opacity: 0.5;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  width: 100px;
+  height: 100px;
+}
+.loader {
+  border: 6px solid #141313;
+  width: 100%;
+  height: 100%;
+  background: #0c5f01;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation .5s linear infinite;
+}
+.loader::after {
+  content: '';  
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 50px solid;
+  border-color: transparent #0f0e0e;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* ======== Loader Styles ======== */
+label.theme-toggle {
+  width: 62px;
+  height: 33px;
+  position: absolute;
+  display: block;
+  background-color: var(--wrapper-circle);
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px var(--wrapper-shadow1), inset 0px -5px 15px var(--wrapper-shadow2);
+  cursor: pointer;
+  transition: 0.3s;
+  right: 280px;
+  top: 22px;
+}
+label.theme-toggle:after {
+  content: "";
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  background: linear-gradient(180deg, var(--circle-color1), var(--circle-color2));
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px var(--circle-shadow);
+  transition: 0.3s;
+}
+input[type=checkbox] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+input:checked + label.theme-toggle {
+  background: var(--dark-clr);
+}
+input:checked + label.theme-toggle:after {
+  left: 57px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, var(--dark-circle-color1), var(--dark-circle-color2));
+}
+label.theme-toggle:active:after {
+  width: 45px;
+}
+#comment-input {
+  color: var(--text-color);
+  background-color: var(--light-clr);
+  border: none;
+}
+#comment-input::placeholder {
+  color: var(--dark-clr)
+}
+.comment-style {
+  background-color: var(--comments-color);
+  border-radius: 14px;
+}
+@media only screen and (max-width: 600px) {
+  button#logout-btn {
+    position: sticky;
+    left: 90px;
+    float:right;
+  }
+  label.theme-toggle {
+    left: 10px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  button#logout-btn {
+    visibility: hidden;
+  }
+  a.navbar-brand {
+    top: 28px;
+    position: relative;
+    left: 55px;
+  }
+  b#nav-username {
+    top: 4px;
+    position: relative;
+  }
+}
+@media only screen and (min-width: 416px) and (max-width: 572px) {
+  button#logout-btn {
+    left: 32px;
+    position: relative;
+  }
+}
